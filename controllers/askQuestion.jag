@@ -1,0 +1,26 @@
+<%
+var caramel;
+(function () {
+    caramel = require('caramel');
+    var log = new Log('social.activityBrowser');
+    var user = request.getParameter('user');
+    var userModule = require('/modules/user.js');
+    var logged = userModule.current(session);
+    
+    if (user && !logged) {
+        include('login.jag');
+    }
+
+    var username = logged ? String(logged.username) + '@' + logged.tenantDomain : "anonymous";
+    var target = request.getParameter('target');
+
+        caramel.render({
+            isLogged: Boolean(logged),
+            input_param: {
+                user: username, id :target
+            }
+        });
+})();
+%>
+
+

@@ -1,0 +1,30 @@
+<script>var target = '{{id}}'; var user = '{{user}}';</script>
+
+<div class="row com-stream">
+	
+	<div class="row com-sort {{#unless questions}}com-sort-hidden{{/unless}}">
+		<ul>
+			<li>
+				<a href="#" id="newest">Newest</a>
+			</li>
+			<li>
+				<a href="#">Oldest</a>
+			</li>
+			<li>
+				<a href="#" class="selected">Popular</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="stream">
+		{{#if questions}}
+			{{#each questions}}
+				{{> list-questions-activity}}
+			{{/each}}
+		{{else}}
+			<p class="com-first-review">
+				Be the first one to add a question!
+			</p>
+		{{/if}}
+	</div>
+</div>

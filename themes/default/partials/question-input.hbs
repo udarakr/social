@@ -1,0 +1,27 @@
+<div class="row com-add">
+{{t "Ask Question"}}
+<!--
+	<div class="com-left">
+		<img class="img-avatar" src="{{url "/themes/default/img/avatar.png"}}">
+	</div>-->
+
+	<div class="com-body-cont">
+		<form method="post" id="com-form-post" />
+		<div class="clear com-body-wrapper">
+			{{t "Title"}} <input type="text" id="qtn-title" style="width:600px;"/></br>
+			<input type="hidden" id="qtn-target" value="{{id}}"/></br>
+			<textarea id="qtn-body"></textarea></br>
+			{{t "Tags"}} <input type="text" id="qtn-tags" style="width:600px;"/></br>
+		</div>
+		<div class="row">
+			<div class="txt-right com-post-as">
+				<div class="com-alert"></div>
+				<button id="btn-post">
+					{{t "Post Your Question"}}
+				</button>
+
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

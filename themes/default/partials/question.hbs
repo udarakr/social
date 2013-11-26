@@ -1,0 +1,28 @@
+<script>var target = '{{id}}'; var user = '{{user}}';</script>
+
+<div class="row com-stream">
+	<div id="stream">
+		<div class="clear">
+            <strong class="com-author">{{object.title}}</strong>
+            <p>
+                {{object.content}}
+            </p>
+        </div>
+	</div>
+	<form method="post" id="com-form-post" />
+		<div class="clear com-body-wrapper">
+			<input type="hidden" id="answer-target" value="{{id}}"/></br>
+			<textarea id="answer-body"></textarea></br>
+		</div>
+		<div class="row">
+			<div class="txt-right com-post-as">
+				<div class="com-alert"></div>
+				<button id="btn-answer">
+					{{t "Post Your Answer"}}
+				</button>
+
+			</div>
+		</div>
+	</form>
+</div>
+{{dump.}}

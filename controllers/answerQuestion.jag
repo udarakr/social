@@ -1,0 +1,36 @@
+<%
+var caramel;
+(function () {
+    caramel = require('caramel');
+    var log = new Log('social.activityBrowser');
+    var user = request.getParameter('user');
+    var userModule = require('/modules/user.js');
+    var logged = userModule.current(session);
+    var question = require('/modules/question.js');
+
+    if (user && !logged) {
+        include('login.jag');
+    }
+
+    var username = logged ? String(logged.username) + '@' + logged.tenantDomain : "anonymous";
+    var target = request.getParameter('target');
+    var questionID = request.getParameter('question');
+    //return only one matching question
+    var questionJSON = question.getQuestion(target, logged, questionID, "question", true);
+    //parse already added answers to render
+    if(questionJSON && questionID){
+        
+        caramel.render({
+            isLogged: Boolean(logged),
+            input_param: {
+                user: username, id :target
+            },
+            stream: {question: questionJSON[0], id: target, user: username}
+        });
+    }else{
+    print('please use the target URL parameter as the asset id, eg: http://localhost:9763/social/question/answer/?target=13530252-rer-w345325');
+    }    
+})();
+%>
+
+
