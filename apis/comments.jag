@@ -2,7 +2,6 @@
 response.addHeader("Content-Type", "application/json");
 
 (function () {
-log.info("ssssssss");
     var userModule = require('/modules/user.js');
     var logged = userModule.current(session);
     if (logged) {

@@ -41,6 +41,7 @@ $btn.click(function (e) {
     e.preventDefault();
     var rating = Number($('input.star-rating-applied:checked').val());
     var review = $textArea.val();
+    var objectType = $('input[name=com_radio]:checked').val();
 
     if (!review && !rating) {
         showAlert("Please add your Review and Rating");
@@ -50,7 +51,7 @@ $btn.click(function (e) {
         showAlert("Please add your Rating");
     } else {
         var activity = {"verb": "post",
-            "object": {"objectType": "review", "content": review, rating: rating}
+            "object": {"objectType": objectType, "content": review, rating: rating}
         };
 
         $btn.attr('disabled', 'disabled');
