@@ -24,14 +24,17 @@
                     <li>
                         <a href="#"><i class="icon icon-thumbs-down {{#if iDislike}}selected{{/if}}"></i><span class="com-dislike-count">{{#if dislikes.totalItems}} {{dislikes.totalItems}} {{/if}}</span></a>
                     </li>
-                    <li>
-                    <textarea rows="2" cols="60" id="com-reply-{{id}}"></textarea>
-                    </li>
 	                <div class="txt-right com-post-as">
+	                <button id="btn-show-reply" value="{{id}}">Show Replies/Reply</button>
+	                <div class="div-replies div-replies-{{id}}">
+	                <div class="div-replies-list"></div>
+	                 <textarea rows="2" cols="60" id="com-reply-{{id}}"></textarea>
 	                <div class="com-alert-{{id}}"></div>
+	               
 					<button id="btn-reply" value="{{id}}">
 						Reply
 					</button>
+					</div>
 					</div>
                 </ul>
             </div>

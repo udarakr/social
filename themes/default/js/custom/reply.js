@@ -47,3 +47,15 @@ $stream.on('click', '#btn-reply', function (e) {
         
     }
 });
+
+$stream.on('click', '#btn-show-reply', function (e) {
+    e.preventDefault();
+    var $showReplyBtn = $(e.target);
+    var id = $showReplyBtn.attr('value');
+    $(".div-replies-"+id).removeClass("div-replies");
+    //load comments for post:id
+    $.get( 'apis/replies.jag', { target: "post:"+id} )
+    .done(function( data ) {
+    alert(JSON.stringify(data));
+    });
+});

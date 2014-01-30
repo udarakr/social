@@ -95,6 +95,7 @@ button:hover {
     min-height: 80px;
     width: 100%;
 }
+
 .com-body-wrapper {
     padding-right: 7px;
 }
@@ -293,4 +294,8 @@ button:hover {
 
 .com-sort-hidden{
     display:none;
+}
+
+.div-replies{ 
+	display: none;
 }

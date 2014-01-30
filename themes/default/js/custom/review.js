@@ -9,6 +9,7 @@ var windowProxy;
 
 
 var publish = function (activity, onSuccess) {
+
     if (activity.target) {
         activity.context = {"id": target};
     } else {

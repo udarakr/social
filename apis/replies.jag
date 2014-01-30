@@ -1,0 +1,26 @@
+<%
+response.addHeader("Content-Type", "application/json");
+
+(function () {
+    var userModule = require('/modules/user.js');
+    var logged = userModule.current(session);
+    if (logged) {
+        var carbon = require('carbon');
+        var social = carbon.server.osgiService('org.wso2.carbon.social.service.SocialActivityService');
+    	var target = request.getParameter('target');
+    	var obj, reviewsJSON;
+    	if (target) {
+	        try {
+	            var tenantDomain = logged ? logged.tenantDomain : "carbon.super";
+	            obj = JSON.parse(String(social.getSocialObjectJson(target, tenantDomain, "POPULAR")));
+	            reviewsJSON = obj.attachments;
+	        } catch (e) {
+	            log.error(e);
+	        }
+        }
+        print(reviewsJSON);
+    } else {
+        response.sendError(401);
+    }
+})();
+%>
