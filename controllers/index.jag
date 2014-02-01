@@ -31,7 +31,8 @@ var caramel;
     if (target) {
         try {
             var tenantDomain = logged ? logged.tenantDomain : "carbon.super";
-            obj = JSON.parse(String(social.getSocialObjectJson(target, tenantDomain, "POPULAR")));
+            //Use sinceId = 0 to render initial comment page
+            obj = JSON.parse(String(social.getSocialObjectJson(target, tenantDomain, "POPULAR",10,"0")));
             reviewsJSON = obj.attachments;
         } catch (e) {
             log.error(e);
